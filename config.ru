@@ -1,10 +1,5 @@
-require 'bundler'
-require 'json'
+require File.dirname(__FILE__) + '/config/boot.rb'
 
-Bundler.require
-
-require "mechanic"
-
-use Rack::Reloader, 0
-
-run Mechanic
+run Rack::URLMap.new({
+  "/"    => Mechanic::Fixtures
+})
