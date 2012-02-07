@@ -2,6 +2,8 @@ ENV["RACK_ENV"] ||= "development"
 
 require 'bundler'
 require 'json'
+require 'sinatra'
+require 'machinist'
 
 Bundler.setup
 

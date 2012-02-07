@@ -1,9 +1,13 @@
+require 'sinatra/base'
+
 module Mechanic
-  class Fixtures < Sinatra::Base
-    get "/create/:name" do
+  class Fixtures < ::Sinatra::Base
+    set :port, 9999
+
+    get "/:name" do
       content_type 'application/json'
 
-      {:success => @request.params["m"]}.to_json
+      {:success => @request.params["m"].to_s}.to_json
     end
 
     not_found do
@@ -16,3 +20,5 @@ module Mechanic
   end
 
 end
+
+Mechanic::Fixtures.run!
